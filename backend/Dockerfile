@@ -8,5 +8,5 @@ RUN apt update && \
     chmod +x /usr/bin/wait-for
     
 ADD entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# RUN chmod +x /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]

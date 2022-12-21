@@ -6,19 +6,21 @@ services:
     build: ./backend
     ports:
       - 3001:3000
-    command: wait-for database:3306 -t 100 -- ./start.sh
+    entrypoint:  ./entrypoint.sh
     volumes:
       - ./backend:/home/node/backend
     depends_on:
       - db
 
-  frontend:
-    container_name: frontend
-    build: ./frontend
-    ports:
-      - 3000:3000
-    volumes:
-      - ./frontend:/home/node/frontend
+  # frontend:
+  #   container_name: frontend
+  #   build: ./frontend
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./frontend:/home/node/frontend
+  #   depends_on:
+  #     - db  
 
   db:
     container_name: db
